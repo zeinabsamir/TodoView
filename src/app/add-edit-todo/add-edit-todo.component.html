@@ -1,0 +1,17 @@
+<mat-card>
+  <form (submit)="onSubmitTodo(todoForm)" #todoForm="ngForm">
+    <mat-form-field>
+      <input matInput
+       type="text"
+       name="task"
+       ngModel
+       required
+       placeholder="what should i do"
+       #task="ngModel" >
+       <mat-error *ngIf="task.invalid">Please enter a content</mat-error>
+      </mat-form-field>
+    <button mat-raised-button
+      color="primary"
+      type="submit" >{{editMode? 'Edit': 'Create'}}</button>
+  </form>
+</mat-card>

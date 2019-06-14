@@ -1,0 +1,27 @@
+<mat-selection-list #todoList  *ngIf="todos.length > 0">
+  <mat-list-option *ngFor="let todo of todos">
+      <div style="display:flex; justify-content:space-between;align-items:center">
+          <div style="display:flex;align-items:center">
+            <div style="display:flex; flex-direction:column">
+              <div style="margin-top:-30px">
+                <p matLine>
+                  {{todo.task}}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button mat-icon-button (click)="onEdit(todo._id)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="onDelete(todo._id)">
+                <mat-icon>delete</mat-icon>
+             </button>
+          </div>
+        </div>
+  </mat-list-option>
+
+</mat-selection-list>
+
+
+<p class="info-text mat-body-1" *ngIf="todos.length == 0">No todos added</p>
